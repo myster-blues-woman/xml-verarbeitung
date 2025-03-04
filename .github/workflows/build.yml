@@ -28,12 +28,12 @@ jobs:
 
       - name: Build and Push Backend Image
         run: |
-          docker build -t ghcr.io/myster-blues-woman/blog-backend:latest
+          docker build -t ghcr.io/myster-blues-woman/blog-backend:latest blog-backend
           docker push ghcr.io/myster-blues-woman/blog-backend:latest
 
       - name: Build and Push Text-Validation Service
         run: |
-          docker build -t ghcr.io/myster-blues-woman/text-validation-service:latest
+          docker build -t ghcr.io/myster-blues-woman/text-validation-service:latest text-validation-service
           docker push ghcr.io/myster-blues-woman/text-validation-service:latest
 
   deploy:
