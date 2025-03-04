@@ -25,7 +25,12 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Build with Maven
+      - name: Build Backend with Maven
+        working-directory: ./blog-backend
+        run: ./mvnw package -Dnative
+
+      - name: Build Text-Validation Service with Maven
+        working-directory: ./text-validation-service
         run: ./mvnw package -Dnative
 
       - name: Log in to GitHub Container Registry
