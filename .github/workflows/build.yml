@@ -25,6 +25,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Set execute permissions for mvnw
+        run: |
+          chmod +x ./blog-backend/mvnw
+          chmod +x ./text-validation-service/mvnw
+
       - name: Build Backend with Maven
         working-directory: ./blog-backend
         run: ./mvnw package -Dnative
