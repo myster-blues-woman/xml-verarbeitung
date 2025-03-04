@@ -30,13 +30,18 @@ jobs:
           chmod +x ./blog-backend/mvnw
           chmod +x ./text-validation-service/mvnw
 
+      - name: Configure Maven settings
+        run: |
+          mkdir -p ~/.m2
+          echo '<settings><mirrors><mirror><id>central</id><mirrorOf>central</mirrorOf><url>https://repo.maven.apache.org/maven2</url></mirror></mirrors></settings>' > ~/.m2/settings.xml
+
       - name: Build Backend with Maven
         working-directory: ./blog-backend
-        run: ./mvnw package -Dnative
+        run: ./mvnw package -Dnative -X
 
       - name: Build Text-Validation Service with Maven
         working-directory: ./text-validation-service
-        run: ./mvnw package -Dnative
+        run: ./mvnw package -Dnative -X
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v2
