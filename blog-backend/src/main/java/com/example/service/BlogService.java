@@ -27,7 +27,7 @@ public class BlogService {
         return blog;
     }
 
-    public void saveblogAndSendValidation(Blog blog) {
+    public void saveBlogAndSendValidation(Blog blog) {
         Blog savedblog = saveBlog(blog);
         sendValidationRequestAsync(savedblog);
     }
